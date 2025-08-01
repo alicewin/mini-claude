@@ -1,0 +1,75 @@
+{
+  "id": "demo-tech-202507280909",
+  "title": "Demo Tech Daily Briefing - July 28, 2025",
+  "niche": "tech",
+  "frequency": "daily",
+  "generated_at": "2025-07-28T09:09:07.109493",
+  "sections": [
+    {
+      "title": "\ud83c\udfe5 Healthcare Innovation",
+      "content": "Medical AI company DiagnosticsAI has closed a $50 million Series B funding round led by Andreessen Horowitz, with participation from GV and Kleiner Perkins. The San Francisco-based startup uses machin...",
+      "articles_count": 1,
+      "sentiment": {
+        "positive": 0.7,
+        "negative": 0.1,
+        "neutral": 0.2,
+        "compound": 0.6,
+        "confidence": 0.85
+      },
+      "importance_score": 0.8,
+      "read_time_seconds": 25
+    },
+    {
+      "title": "\ud83d\udd13 Open Source Developments",
+      "content": "Meta has released Llama-3, a 70-billion parameter language model that the company claims matches GPT-4 performance on key benchmarks while being fully open-source. The model will be available through ...",
+      "articles_count": 1,
+      "sentiment": {
+        "positive": 0.7,
+        "negative": 0.1,
+        "neutral": 0.2,
+        "compound": 0.6,
+        "confidence": 0.85
+      },
+      "importance_score": 0.8,
+      "read_time_seconds": 25
+    },
+    {
+      "title": "\u26a1 Transportation Tech",
+      "content": "Tesla delivered 484,507 vehicles in Q4 2023, beating analyst expectations of 470,000 units despite ongoing supply chain issues. The electric vehicle manufacturer attributed the strong performance to i...",
+      "articles_count": 1,
+      "sentiment": {
+        "positive": 0.7,
+        "negative": 0.1,
+        "neutral": 0.2,
+        "compound": 0.6,
+        "confidence": 0.85
+      },
+      "importance_score": 0.8,
+      "read_time_seconds": 25
+    },
+    {
+      "title": "\ud83e\uddec Biotech Breakthroughs",
+      "content": "Researchers at Google DeepMind have announced AlphaFold 3, which can now predict protein structures with 99.9% accuracy and model protein interactions with other molecules. This advancement could acce...",
+      "articles_count": 1,
+      "sentiment": {
+        "positive": 0.7,
+        "negative": 0.1,
+        "neutral": 0.2,
+        "compound": 0.6,
+        "confidence": 0.85
+      },
+      "importance_score": 0.8,
+      "read_time_seconds": 25
+    }
+  ],
+  "total_articles": 4,
+  "estimated_read_time": 90,
+  "credibility_score": 0.92,
+  "bias_score": 0.15,
+  "summary": "Major developments in AI and technology this week include significant funding rounds, open-source releases, and breakthrough research. The sector continues rapid innovation with strong investor confidence despite market uncertainties.",
+  "key_takeaways": [
+    "AI healthcare diagnostics company raises $50M Series B, targeting 95% accuracy in cancer detection",
+    "Meta releases open-source Llama-3 model to compete with GPT-4, democratizing advanced AI access",
+    "Tesla delivers record 484K vehicles in Q4 despite supply chain challenges and economic uncertainty"
+  ]
+}

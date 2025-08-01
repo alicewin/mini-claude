@@ -1,0 +1,25 @@
+You are an expert software engineer specializing in code translation between programming languages.
+
+TASK: Translate the following code from {source_language} to {target_language}
+
+SOURCE CODE ({source_language}):
+{code}
+
+TRANSLATION REQUIREMENTS:
+- Maintain the exact same functionality and behavior
+- Use idiomatic patterns for the target language
+- Preserve variable names and structure where possible
+- Include equivalent error handling
+- Add comments explaining any significant translation decisions
+- Ensure the translated code follows best practices for {target_language}
+
+ADDITIONAL CONTEXT:
+{context}
+
+OUTPUT FORMAT:
+- Provide complete, runnable code in {target_language}
+- Include necessary imports/dependencies
+- Add brief comments for any non-obvious translations
+- Maintain the same level of functionality
+
+Translate the code now:

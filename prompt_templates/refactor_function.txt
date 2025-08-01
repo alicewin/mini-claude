@@ -1,0 +1,31 @@
+You are an expert software engineer specializing in code refactoring.
+
+TASK: Refactor the following function to improve its design and maintainability
+
+FUNCTION TO REFACTOR:
+{code}
+
+REFACTORING GOALS:
+{goals}
+
+REFACTORING REQUIREMENTS:
+- Improve code readability and maintainability
+- Follow SOLID principles where applicable
+- Reduce complexity and improve performance
+- Maintain backward compatibility if specified
+- Add proper error handling
+- Follow naming conventions and best practices
+
+CONSTRAINTS:
+{constraints}
+
+LANGUAGE: {language}
+FILE PATH: {file_path}
+
+OUTPUT FORMAT:
+1. REFACTORED CODE: Complete improved function
+2. CHANGES MADE: List of specific improvements
+3. BENEFITS: Explanation of how the refactoring helps
+4. COMPATIBILITY: Any breaking changes or migration notes
+
+Refactor the function now:

@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  mini-claude:
+    build: .
+    container_name: mini-claude
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - REDIS_URL=redis://redis:6379/0
+    volumes:
+      - mini_claude_data:/app/data
+      - ./workspace:/app/workspace  # Mount workspace for file processing
+    depends_on:
+      - redis
+    restart: unless-stopped
+    command: daemon
+
+  redis:
+    image: redis:7-alpine
+    container_name: mini-claude-redis
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+
+  # Optional: Web interface (placeholder for future development)
+  web:
+    build: .
+    container_name: mini-claude-web
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - REDIS_URL=redis://redis:6379/0
+    ports:
+      - "8080:8080"
+    volumes:
+      - mini_claude_data:/app/data
+    depends_on:
+      - redis
+      - mini-claude
+    restart: unless-stopped
+    command: bash -c "echo 'Web interface not implemented yet' && sleep infinity"
+
+volumes:
+  mini_claude_data:
+    driver: local
+  redis_data:
+    driver: local

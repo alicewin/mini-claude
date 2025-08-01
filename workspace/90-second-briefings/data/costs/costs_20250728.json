@@ -1,0 +1,30 @@
+{
+  "date": "2025-07-28",
+  "daily_costs": {
+    "scraper": 0.05,
+    "claude-haiku": 0.12,
+    "openai-tts": 0.08,
+    "email": 0.02,
+    "storage": 0.01
+  },
+  "worker_costs": {
+    "Scraper-01": 0.05,
+    "Summarizer-01": 0.12,
+    "Audio-01": 0.08,
+    "Dashboard-01": 0.03
+  },
+  "total_cost": 0.28,
+  "events": [
+    {
+      "timestamp": "2025-07-28T09:09:10.133401",
+      "service": "demo-generation",
+      "operation": "briefing_creation",
+      "units": 3,
+      "cost_gbp": 0.15,
+      "worker_id": "demo-generator",
+      "metadata": {
+        "briefing_id": "demo-finance-202507280909"
+      }
+    }
+  ]
+}

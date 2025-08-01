@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  briefings-app:
+    build: .
+    container_name: 90-second-briefings
+    restart: unless-stopped
+    environment:
+      - PYTHONPATH=/app
+      - PYTHONUNBUFFERED=1
+      # API Keys (set in .env file)
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - TWITTER_BEARER_TOKEN=${TWITTER_BEARER_TOKEN}
+      - NOTION_INTEGRATION_TOKEN=${NOTION_INTEGRATION_TOKEN}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_REGION=${AWS_REGION:-us-east-1}
+      - S3_BUCKET_NAME=${S3_BUCKET_NAME}
+      # Email configuration
+      - SMTP_SERVER=${SMTP_SERVER:-smtp.gmail.com}
+      - SMTP_PORT=${SMTP_PORT:-587}
+      - EMAIL_USERNAME=${EMAIL_USERNAME}
+      - EMAIL_PASSWORD=${EMAIL_PASSWORD}
+      - FROM_EMAIL=${FROM_EMAIL}
+      # System configuration
+      - DAILY_COST_LIMIT=${DAILY_COST_LIMIT:-20.0}
+      - REDIS_URL=redis://redis:6379/0
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./audio_output:/app/audio_output
+      - ./dashboard:/app/dashboard
+    ports:
+      - "8000:8000"  # Web dashboard
+      - "8001:8001"  # API endpoint
+    depends_on:
+      - redis
+    networks:
+      - briefings-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: briefings-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    volumes:
+      - redis-data:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - briefings-network
+
+  dashboard:
+    build: .
+    container_name: briefings-dashboard
+    restart: unless-stopped
+    command: ["streamlit", "run", "dashboard/app.py", "--server.port=8000", "--server.host=0.0.0.0"]
+    environment:
+      - PYTHONPATH=/app
+    volumes:
+      - ./data:/app/data
+      - ./dashboard:/app/dashboard
+    ports:
+      - "8000:8000"
+    depends_on:
+      - briefings-app
+    networks:
+      - briefings-network
+
+volumes:
+  redis-data:
+
+networks:
+  briefings-network:
+    driver: bridge

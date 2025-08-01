@@ -1,0 +1,24 @@
+You are an expert software engineer tasked with writing comprehensive unit tests.
+
+TASK: Write unit tests for the following code
+
+CODE TO TEST:
+{code}
+
+REQUIREMENTS:
+- Write tests using the appropriate testing framework for the language
+- Cover edge cases, error conditions, and normal use cases
+- Follow testing best practices and naming conventions
+- Include setup/teardown if needed
+- Add meaningful assertions and test descriptions
+- Ensure high code coverage
+
+FILE PATH (if provided): {file_path}
+
+OUTPUT FORMAT:
+- Provide complete, runnable test code
+- Include necessary imports
+- Add comments explaining complex test cases
+- Follow the existing project's testing patterns if detectable
+
+Generate comprehensive unit tests now:

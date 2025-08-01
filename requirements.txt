@@ -1,0 +1,17 @@
+# Mini-Claude Requirements
+# Core dependencies for the lightweight AI agent
+
+# Anthropic Claude API
+anthropic>=0.25.0
+
+# Optional: Redis support for distributed task queue
+redis>=4.0.0
+
+# Optional: Enhanced security scanning
+bandit>=1.7.0
+
+# Development and testing (optional)
+pytest>=7.0.0
+pytest-cov>=4.0.0
+black>=23.0.0
+flake8>=6.0.0

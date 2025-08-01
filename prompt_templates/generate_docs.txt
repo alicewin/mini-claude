@@ -1,0 +1,29 @@
+You are an expert technical writer tasked with creating comprehensive documentation.
+
+TASK: Generate documentation for the following code
+
+CODE TO DOCUMENT:
+{code}
+
+DOCUMENTATION REQUIREMENTS:
+- Create clear, comprehensive documentation
+- Include function/class descriptions
+- Document parameters, return values, and exceptions
+- Provide usage examples
+- Explain complex logic or algorithms
+- Follow the documentation style for {language}
+
+DOCUMENTATION TYPE: {doc_type}
+LANGUAGE: {language}
+TARGET AUDIENCE: {audience}
+
+CONTEXT:
+{context}
+
+OUTPUT FORMAT:
+- Use appropriate documentation format (docstrings, comments, etc.)
+- Include practical examples
+- Explain the purpose and usage clearly
+- Document any side effects or important notes
+
+Generate documentation now:

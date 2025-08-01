@@ -1,0 +1,198 @@
+#!/usr/bin/env python3
+"""
+Architecture diagram generator for Mini-Claude
+Creates a visual representation of the system architecture
+"""
+
+def generate_architecture_diagram():
+    """Generate ASCII art architecture diagram"""
+    
+    diagram = """
+Mini-Claude Architecture Diagram
+================================
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                USER LAYER                                  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐            │
+│  │   CLI    │    │  Direct  │    │  Queue   │    │  Docker  │            │
+│  │Interface │    │  Python  │    │ Submit   │    │Container │            │
+│  │          │    │   API    │    │          │    │          │            │
+│  └─────┬────┘    └─────┬────┘    └─────┬────┘    └─────┬────┘            │
+│        │               │               │               │                 │
+└────────┼───────────────┼───────────────┼───────────────┼─────────────────┘
+         │               │               │               │
+         │               │               │               │
+┌────────┼───────────────┼───────────────┼───────────────┼─────────────────┐
+│        │               │               │               │   CORE LAYER    │
+│        │               │               │               │                 │
+│        ▼               ▼               ▼               ▼                 │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │                    MINI-CLAUDE CORE AGENT                          │   │
+│  │                                                                     │   │
+│  │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐             │   │
+│  │  │    Task      │  │   Security   │  │   Activity   │             │   │
+│  │  │  Executor    │  │ Guardrails   │  │   Logger     │             │   │
+│  │  │              │  │              │  │              │             │   │
+│  │  └──────┬───────┘  └──────┬───────┘  └──────┬───────┘             │   │
+│  │         │                 │                 │                     │   │
+│  │         ▼                 ▼                 ▼                     │   │
+│  │  ┌──────────────────────────────────────────────────────────────┐  │   │
+│  │  │                 LLM INTERFACE                                │  │   │
+│  │  │            (Anthropic Claude API)                          │  │   │
+│  │  └──────────────────────────────────────────────────────────────┘  │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                    │                                       │
+└────────────────────────────────────┼───────────────────────────────────────┘
+                                     │
+                                     ▼
+┌────────────────────────────────────────────────────────────────────────────┐
+│                              STORAGE LAYER                                │
+├────────────────────────────────────────────────────────────────────────────┤
+│                                                                            │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐      │
+│  │    Task     │  │   Config    │  │   Backups   │  │    Logs     │      │
+│  │   Queue     │  │   Files     │  │             │  │             │      │
+│  │             │  │             │  │             │  │             │      │
+│  │┌───────────┐│  │ config.json │  │ *.backup    │  │activity.log │      │
+│  ││  SQLite   ││  │             │  │             │  │             │      │
+│  ││    or     ││  │             │  │             │  │             │      │
+│  ││   Redis   ││  │             │  │             │  │             │      │
+│  │└───────────┘│  │             │  │             │  │             │      │
+│  └─────────────┘  └─────────────┘  └─────────────┘  └─────────────┘      │
+│                                                                            │
+└────────────────────────────────────────────────────────────────────────────┘
+                                     │
+                                     ▼
+┌────────────────────────────────────────────────────────────────────────────┐
+│                            EXTERNAL SERVICES                              │
+├────────────────────────────────────────────────────────────────────────────┤
+│                                                                            │
+│  ┌─────────────────────────────────────────────────────────────────────┐  │
+│  │                    Anthropic Claude API                            │  │
+│  │                  (claude-3-haiku-20240307)                         │  │
+│  │                                                                     │  │
+│  │  • Fast, cost-effective processing                                 │  │
+│  │  • Code analysis and generation                                    │  │
+│  │  • Task completion                                                 │  │
+│  └─────────────────────────────────────────────────────────────────────┘  │
+│                                                                            │
+└────────────────────────────────────────────────────────────────────────────┘
+
+SECURITY BOUNDARIES
+===================
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                           SECURITY GUARDRAILS                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  Input Validation           Code Analysis              Output Filtering     │
+│  ┌─────────────┐           ┌─────────────┐           ┌─────────────┐       │
+│  │• Task Type  │           │• AST Parser │           │• Pattern    │       │
+│  │• File Paths │    ──────▶│• Pattern    │    ──────▶│  Scanning   │       │
+│  │• Parameters │           │  Detection  │           │• Content    │       │
+│  │• File Size  │           │• Dangerous  │           │  Validation │       │
+│  └─────────────┘           │  Operations │           └─────────────┘       │
+│                            └─────────────┘                                 │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │                     EXECUTION SANDBOX                              │   │
+│  │                                                                     │   │
+│  │  • Restricted file system access                                   │   │
+│  │  • Command filtering                                               │   │
+│  │  • Time limits                                                     │   │
+│  │  • Memory limits                                                   │   │
+│  │  • Network isolation                                               │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+DATA FLOW
+=========
+
+1. User submits task via CLI/API
+2. Security validation (guardrails)
+3. Task queued (SQLite/Redis)
+4. Agent picks up task
+5. Prompt template selection
+6. LLM API call (Claude)
+7. Response security validation
+8. Safe execution (if needed)
+9. Result logging and return
+
+SELF-UPDATE MECHANISM
+====================
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                               UPDATE FLOW                                  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐                 │
+│  │   Propose    │    │    Human     │    │    Apply     │                 │
+│  │   Update     │───▶│   Approval   │───▶│   Update     │                 │
+│  │              │    │   Required   │    │              │                 │
+│  └──────────────┘    └──────────────┘    └──────────────┘                 │
+│          │                                        │                       │
+│          ▼                                        ▼                       │
+│  ┌──────────────┐                         ┌──────────────┐                │
+│  │   Backup     │                         │   Rollback   │                │
+│  │   Created    │                         │  Available   │                │
+│  └──────────────┘                         └──────────────┘                │
+│                                                                             │
+│  PROTECTED FILES: mini_claude.py, self_update.py                          │
+│  AUTO-APPROVED: prompt_templates/*, config.json (if enabled)              │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+DEPLOYMENT OPTIONS
+==================
+
+Local Development:
+├── Direct Python execution
+├── Virtual environment isolation
+└── SQLite backend
+
+Production Deployment:
+├── Docker container
+├── Docker Compose with Redis
+├── Kubernetes (future)
+└── Cloud platforms (Replit, Render, etc.)
+
+MONITORING & OBSERVABILITY
+==========================
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                              LOGGING SYSTEM                                │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐       │
+│  │    Task     │  │  Security   │  │   System    │  │   Update    │       │
+│  │   Events    │  │ Violations  │  │   Events    │  │   Events    │       │
+│  │             │  │             │  │             │  │             │       │
+│  │• Start/Stop │  │• Blocked    │  │• Startup    │  │• Proposed   │       │
+│  │• Completion │  │  Operations │  │• Shutdown   │  │• Applied    │       │
+│  │• Errors     │  │• Pattern    │  │• Config     │  │• Rolled     │       │
+│  │             │  │  Matches    │  │  Changes    │  │  Back       │       │
+│  └─────────────┘  └─────────────┘  └─────────────┘  └─────────────┘       │
+│                                                                             │
+│  All events logged to: activity.log                                       │
+│  Format: timestamp - level - category: details                            │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+"""
+    
+    return diagram
+
+def save_architecture_diagram():
+    """Save the architecture diagram to a file"""
+    diagram = generate_architecture_diagram()
+    
+    with open("ARCHITECTURE.md", "w") as f:
+        f.write(diagram)
+    
+    print("Architecture diagram saved to ARCHITECTURE.md")
+    return "ARCHITECTURE.md"
+
+if __name__ == "__main__":
+    save_architecture_diagram()

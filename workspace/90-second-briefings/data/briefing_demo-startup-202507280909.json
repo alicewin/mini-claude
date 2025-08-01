@@ -1,0 +1,47 @@
+{
+  "id": "demo-startup-202507280909",
+  "title": "Demo Startup Weekly Briefing - July 28, 2025",
+  "niche": "startup",
+  "frequency": "weekly",
+  "generated_at": "2025-07-28T09:09:08.111928",
+  "sections": [
+    {
+      "title": "\ud83c\udfe5 Healthcare Innovation",
+      "content": "Medical AI company DiagnosticsAI has closed a $50 million Series B funding round led by Andreessen Horowitz, with participation from GV and Kleiner Perkins. The San Francisco-based startup uses machin...",
+      "articles_count": 1,
+      "sentiment": {
+        "positive": 0.7,
+        "negative": 0.1,
+        "neutral": 0.2,
+        "compound": 0.6,
+        "confidence": 0.85
+      },
+      "importance_score": 0.8,
+      "read_time_seconds": 25
+    },
+    {
+      "title": "\ud83d\udd13 Open Source Developments",
+      "content": "Meta has released Llama-3, a 70-billion parameter language model that the company claims matches GPT-4 performance on key benchmarks while being fully open-source. The model will be available through ...",
+      "articles_count": 1,
+      "sentiment": {
+        "positive": 0.7,
+        "negative": 0.1,
+        "neutral": 0.2,
+        "compound": 0.6,
+        "confidence": 0.85
+      },
+      "importance_score": 0.8,
+      "read_time_seconds": 25
+    }
+  ],
+  "total_articles": 2,
+  "estimated_read_time": 90,
+  "credibility_score": 0.92,
+  "bias_score": 0.15,
+  "summary": "Startup ecosystem remains active with major funding announcements across AI and healthcare sectors. Series B rounds dominated activity, with established VCs continuing to back innovative technologies.",
+  "key_takeaways": [
+    "AI healthcare diagnostics company raises $50M Series B, targeting 95% accuracy in cancer detection",
+    "Meta releases open-source Llama-3 model to compete with GPT-4, democratizing advanced AI access",
+    "Tesla delivers record 484K vehicles in Q4 despite supply chain challenges and economic uncertainty"
+  ]
+}

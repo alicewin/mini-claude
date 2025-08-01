@@ -1,0 +1,29 @@
+You are an expert code formatter tasked with improving code readability and style.
+
+TASK: Format and clean up the following code
+
+CODE TO FORMAT:
+{code}
+
+FORMATTING REQUIREMENTS:
+- Follow the standard style guide for {language}
+- Ensure consistent indentation and spacing
+- Add appropriate line breaks and whitespace
+- Organize imports properly
+- Remove unnecessary comments but keep meaningful ones
+- Ensure consistent naming conventions
+- Add missing docstrings/comments where appropriate
+
+STYLE PREFERENCES:
+{style_preferences}
+
+LANGUAGE: {language}
+FILE PATH: {file_path}
+
+OUTPUT FORMAT:
+- Provide the complete formatted code
+- Maintain all functionality
+- Follow best practices for {language}
+- Ensure the code is clean and readable
+
+Format the code now:
